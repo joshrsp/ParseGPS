@@ -43,7 +43,7 @@ public class MainActivity extends ActionBarActivity {
         Parse.enableLocalDatastore(this);
 
         Parse.initialize(this, "KztzT20oBCdVfe4ua3Cm9pz2vgaplroZFJas0wRA", "g3hyZUawmclrLvyoqrNpAZ5iAQkpQRu9fpIanYZC");
-        testObject = new ParseObject("GPS");
+
         /*testObject.put("foo", "bar");
         testObject.saveInBackground();*/
         /////
@@ -103,6 +103,7 @@ public class MainActivity extends ActionBarActivity {
             salida3.setText("Longitud: " + String.valueOf(loc.getLongitude()));
             salida4.setText("Precision: " + String.valueOf(loc.getAccuracy()));
             Log.i("", String.valueOf(loc.getLatitude() + " - " + String.valueOf(loc.getLongitude())));
+            testObject = new ParseObject("GPS");
             testObject.put("latitud",String.valueOf(loc.getLatitude()));
             testObject.put("longitud",String.valueOf(loc.getLongitude()));
 
