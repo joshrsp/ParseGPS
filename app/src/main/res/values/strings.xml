@@ -4,5 +4,5 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="boton1">Primero...Cargar datos GPS</string>
-    <string name="title_activity_maps">Segundo...Map</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
