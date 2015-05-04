@@ -2,6 +2,7 @@ package com.example.joserafael.parsegps;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -60,6 +61,14 @@ public class MainActivity extends ActionBarActivity {
         latitud = new ArrayList<String>();
         longitud = new ArrayList<String>();
         comenzarLocalizacion();
+    }
+    public void mapa(View view){
+        Intent intent = new Intent(MainActivity.this,MapsActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putStringArrayList("latitud",latitud);
+        bundle.putStringArrayList("longitud",longitud);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
     private void comenzarLocalizacion()
     {
@@ -125,7 +134,7 @@ public class MainActivity extends ActionBarActivity {
 
             }
             salida5.setText(va);
-
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("GPS");
 
     }
     public void requestData(View view) {
@@ -183,14 +192,18 @@ public class MainActivity extends ActionBarActivity {
             try {
 
                 ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("GPS");
+                 //query.setSkip(300);
 
                 ob = query.find();
-                for (ParseObject dato : ob) {
+                //for(int i=0;i<6;i++) {
+                    for (ParseObject dato : ob) {
 
-                    latitud.add(dato.get("latitud") );
-                    longitud.add(dato.get("longitud"));
+                        latitud.add(dato.get("latitud"));
+                        longitud.add(dato.get("longitud"));
 
-                }
+                    }
+                 //   query.setSkip((i+1)*100);
+               // }
             } catch (com.parse.ParseException e) {
                 Log.e("Error", e.getMessage());
                 e.printStackTrace();

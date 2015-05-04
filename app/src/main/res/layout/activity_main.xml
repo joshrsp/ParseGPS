@@ -65,6 +65,16 @@
                 android:id="@+id/texto5"
                 android:onClick="requestData" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mapa"
+                android:id="@+id/mapa"
+                android:onClick="mapa"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
         </LinearLayout>
     </ScrollView>
 
